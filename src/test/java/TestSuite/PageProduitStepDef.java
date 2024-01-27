@@ -20,14 +20,16 @@ public class PageProduitStepDef {
 		
 	}
 	@When("admin click sur le produit {string}")
-	public void admin_click_sur_le_produit(String produitname) {
+	public void admin_click_sur_le_produit(String produitname) throws InterruptedException {
 	    TriProduit produt=new TriProduit(Config.driver);
 	    produt.clicProduit(produitname);
+	   
 	}
 
 	@Then("la page de produit est afiché")
-	public void la_page_de_produit_est_afiché() {
-	    
+	public void la_page_de_produit_est_afiché() throws InterruptedException {
+		 Thread.sleep(3000);
+		    Config.driver.quit();
 	}
 	
 }

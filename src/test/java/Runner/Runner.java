@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-		features="src/test/resources/Feature/menu.feature",
+		features="src/test/resources/Feature/Maisonconnecté-tri-affiche-produit.feature",
 		glue="TestSuite",
 		plugin= {"pretty","html:target/cucumber-report.html"}
 		

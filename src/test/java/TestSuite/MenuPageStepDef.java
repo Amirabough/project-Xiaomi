@@ -22,27 +22,26 @@ public class MenuPageStepDef {
 		
 	}
 
-	@When("admin hover le menu {string} and hover on {string}")
-	public void admin_hover_le_menu_and_hover_on(String menuTitle, String submenutitle) {
+	@When("admin hover le menu {string}")
+	public void admin_hover_le_menu_and_hover_on(String menuTitle) {
 		 MenuPage page=new MenuPage(Config.driver);
-		   page.hoverOnMenu(menuTitle,submenutitle);
+		   page.hoverOnMenu(menuTitle);
 	}
 	@When("admin click sur le submenu {string}")
 	public void admin_click_sur_le_submenu(String submenuN) {
 		MenuPage page=new MenuPage(Config.driver);
 		page.clicOnsubmenu(submenuN);
+	//	String actualmessage=page.verifmenu();
+	//	Assert.assertEquals(submenuN, actualmessage);
 	}
 
 	@Then("admin redirigé vers la page de produit {string}")
-	public void admin_redirigé_vers_la_page_de_produit(String namesubmenu) throws InterruptedException {
+	public void admin_redirigé_vers_la_page_de_produit(String menuNN) throws InterruptedException {
 		MenuPage page=new MenuPage(Config.driver);
-		Thread.sleep(2000);
 		String actualmessage=page.verifmenu();
-		Assert.assertEquals(namesubmenu, actualmessage);
+		Assert.assertEquals(menuNN, actualmessage);
+		Config.driver.quit();
 	}
-
-
-
 
 	}
 

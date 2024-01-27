@@ -27,10 +27,12 @@ public class HomePageStepDef {
 	}
 
 	@Then("page home {string}  est affiché")
-	public void page_home_est_affiché(String name) {
+	public void page_home_est_affiché(String name) throws InterruptedException {
 		XIaomiHome home= new XIaomiHome(Config.driver);
 		   String actuelmessage=home.verifmessage();
 		    Assert.assertEquals(actuelmessage,name);
+		    Thread.sleep(3000);
+		    Config.driver.quit();
 	}
 
 }
